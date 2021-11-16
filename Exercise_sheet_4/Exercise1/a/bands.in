@@ -1,0 +1,5 @@
+&bands
+  outdir='TMP_DIR'
+  prefix='Sb'
+  filband='bands.out'
+/

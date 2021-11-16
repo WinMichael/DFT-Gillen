@@ -1,0 +1,6 @@
+1
+electrostat_3D.pot
+1.D0
+300     !points along the plotting line
+3       !average in x-y plane, plot along z axis
+1.0     !average all points within a window of 1 Ang around each point

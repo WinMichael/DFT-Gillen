@@ -1,0 +1,11 @@
+&input
+flfrc='../d/Si.FC',
+q_in_band_form = .true.,
+q_in_cryst_coord = .true.,
+dos = .true.
+asr='crystal'
+flvec = 'matdyn.modes'
+nk1=15, nk2=15, nk3=15
+fldos='Si.dos'
+deltaE=1
+/

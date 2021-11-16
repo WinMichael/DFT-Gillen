@@ -1,0 +1,6 @@
+&inputpp
+  prefix='Sb'
+  outdir='TMP_DIR'
+  plot_num=11  !electrostatic potential
+  filplot='electrostat_3D.pot'
+/

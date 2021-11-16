@@ -1,0 +1,7 @@
+&input
+fildyn='Si.dyn',
+asr='crystal',
+filout='Si.modes'
+filmol='Si.molden'
+filxsf='Si.axsf'
+/

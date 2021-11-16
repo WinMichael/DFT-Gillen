@@ -1,0 +1,7 @@
+&input
+fildyn='PbO.dyn',
+asr='crystal',
+filout='PbO.modes'
+filmol='PbO.molden'
+filxsf='PbO.axsf'
+/

@@ -1,0 +1,24 @@
+&control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='PbO',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/'
+ /
+ &system
+    ibrav=0, nat= 4, ntyp= 2,
+    ecutwfc =90.0, input_dft = 'lda'
+ /
+ &electrons
+    conv_thr =  1.0d-14
+ /
+ATOMIC_SPECIES
+ Pb 207.2  Pb.nc.UPF
+  O  16.0   O.nc.UPF
+ATOMIC_POSITIONS (crystal)
+XXX
+K_POINTS {automatic}
+8 8 1 1 1 0
+CELL_PARAMETERS (angstrom)
+XXX

@@ -1,0 +1,15 @@
+&input
+  prefix='Si'
+  outdir='./'
+  nrx1=1,
+  nrx2=1,
+  nrx3=1,
+  de=0.01, 
+  file_force='./fd_files/force',
+  file_out='./Si'
+  innx=2
+  nodispsym=.false.
+  noatsym=.false.
+  verbose=.true.
+  hex=.false.
+/

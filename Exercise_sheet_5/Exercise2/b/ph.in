@@ -1,0 +1,10 @@
+--
+&inputph
+  prefix   = 'PbO',
+  fildyn   = 'PbO.dyn',
+  amass(1) = 207.2,
+  amass(2) = 16.0,
+  outdir   = 'TMP_DIR'
+  tr2_ph   =  1.0d-15
+ /
+0.0 0.0 0.0

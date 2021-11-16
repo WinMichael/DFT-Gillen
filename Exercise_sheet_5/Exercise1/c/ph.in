@@ -1,0 +1,9 @@
+--
+&inputph
+  prefix   = 'Si',
+  outdir   = 'TMP_DIR'
+  amass(1) = 28.086,
+  tr2_ph   =  1.0d-15
+  fildyn   = 'Si.dyn',
+ /
+ 0.0 0.0 0.0

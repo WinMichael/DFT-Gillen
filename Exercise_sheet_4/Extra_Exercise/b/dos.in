@@ -1,0 +1,6 @@
+&dos
+  prefix='SiO2'
+  outdir='TMP_DIR'
+  bz_sum='smearing'
+  degauss=0.005
+/

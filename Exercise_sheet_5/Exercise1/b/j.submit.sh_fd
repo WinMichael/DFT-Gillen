@@ -1,0 +1,73 @@
+#!/bin/bash -l
+#
+# allocate 16 nodes (64 CPUs) for 6 hours
+#PBS -l nodes=1:ppn=40,walltime=1:00:00
+#
+# job name 
+#PBS -N phon
+#
+# stdout and stderr files
+#PBS -o run.out -e run.err
+#
+# first non-empty non-comment line ends PBS options
+
+export OMP_NUM_THREADS=1
+
+module load intel64
+module load gcc
+
+echo $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
+
+##############################################################################
+##############################################################################
+
+MY_QE=$HOME/bin/qe/mpi
+SUPERCELL_DIR='./fd_files/'
+
+# scf calculation
+
+mpirun -np 20 -genv I_MPI_PERHOST=allcores $MY_QE/pw.x -i Si.scf.in >Si.scf.out
+
+mpirun -np 1 $MY_QE/fd.x <fd.in >fd.out
+
+# scf calculation for displacements
+
+cd $SUPERCELL_DIR
+
+mpirun -np 20 -genv I_MPI_PERHOST=allcores $MY_QE/pw.x -i displaced.0.0.0.in > displaced.0.0.0.out
+
+for i in 1 ; do
+    for m in 1 2; do
+       for n in 1 ; do
+          echo $m,$i,$n
+
+mpirun -np 20 -genv I_MPI_PERHOST=allcores $MY_QE/pw.x -i displaced.$m.$i.$n.in > displaced.$m.$i.$n.out
+
+        done
+    done
+done
+
+grep 'force =   ' displaced.0.0.0.out | grep '     atom ' > forces
+awk '{printf("% 18.12f % 18.12f % 18.12f \n",$7,$8,$9)}' < forces >  force.0.0.0
+rm forces
+
+for i in 1 ; do
+    for m in 1 2; do
+       for n in 1; do
+          echo $m,$i,$n
+
+    grep 'force =   ' displaced.$m.$i.$n.out | grep '     atom ' > forces
+    awk '{printf("% 18.12f % 18.12f % 18.12f \n",$7,$8,$9)}' < forces > force.$m.$i.$n
+    rm forces
+
+        done
+    done
+done
+
+cd ..
+
+mpirun -np 1 $MY_QE/fd_ifc.x < fd_ifc.in > fd_ifc.out
+
+cat ./fd_files/header.txt > Si_ifc.FC
+cat ./Si.fc >> Si_ifc.FC

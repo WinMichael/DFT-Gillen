@@ -1,0 +1,43 @@
+&control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='SiO2',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/'
+ /
+ &system
+    ibrav=0, nat= 9, ntyp= 2,
+    ecutwfc =70.0, ecutrho=540.0, input_dft = 'pbesol', tot_charge=0.001
+    occupations='smearing', smearing='cold', degauss=0.001
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.01
+/
+ATOMIC_SPECIES
+ Si  14.0  Si.gbrv.UPF
+  O  16.0   O.gbrv.UPF
+ATOMIC_POSITIONS (crystal)
+O        0.412572485   0.266799993   0.214366455
+O       -0.266799993   0.145772492   0.547699788
+O       -0.145772492  -0.412572485   0.881033122
+O        0.266799993   0.412572485  -0.214366455
+O        0.145772492  -0.266799993   0.452300212
+O       -0.412572485  -0.145772492   0.118966878
+Si       0.470443287   0.000000000   0.333333333
+Si       0.000000000   0.470443287   0.666666667
+Si      -0.470443287  -0.470443287  -0.000000000
+K_POINTS {automatic}
+6 6 4 1 1 1
+CELL_PARAMETERS (angstrom)
+   4.288799998  -2.476139833   0.000000000
+   0.000000000   4.952279666   0.000000000
+  -0.000000000   0.000000000   5.444912482

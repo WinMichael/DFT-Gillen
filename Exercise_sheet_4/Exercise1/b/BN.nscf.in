@@ -1,0 +1,31 @@
+&control
+    calculation = 'bands'
+    prefix='BN',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/'
+    verbosity='high'
+ /
+ &system
+    ibrav=0, nat= 2, ntyp= 2,
+    ecutwfc =90.0, input_dft = 'pbe', nbnd=25
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+ATOMIC_SPECIES
+  B  10.0   B.nc.UPF
+  N  14.0   N.nc.UPF
+ATOMIC_POSITIONS (crystal)
+  B   0.0000000000000000   0.0000000000000000   0.2500000000000000
+  N   0.3333333333333333   0.3333333333333333   0.2500000000000000
+K_POINTS {crystal_b}
+4
+0.5000000  0.0000000 0.0 50
+0.0000000  0.0000000 0.0 50
+0.3333333 -0.3333333 0.0 50
+0.5000000  0.0000000 0.0  1
+CELL_PARAMETERS (angstrom)
+   2.510948920  -0.000000000  -0.000000000
+   1.255474460   2.174545553  -0.000000000
+0.0 0.0 20.0

@@ -1,0 +1,31 @@
+&control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='Mn2C',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0004
+ /
+ &system
+    ibrav=0, nat=3, ntyp= 2,
+    ecutwfc =90.0, input_dft = 'pbesol', 
+    occupations='smearing', smearing='cold', degauss=0.01
+ /
+ &electrons
+    conv_thr =  1.0d-9
+    mixing_beta = 0.2
+ /
+ATOMIC_SPECIES
+ Mn   54.93  Mn.nc_soi.UPF
+  C   12.00   C.nc_soi.UPF
+ATOMIC_POSITIONS (crystal)
+  C   0.0000000000000000   0.000000000000000   0.5000
+ Mn   0.3333333333333333   0.666666666666667   0.5625
+ Mn   0.3333333333333333   0.666666666666667  -0.5625
+K_POINTS {automatic}
+18 18 1 0 0 0
+CELL_PARAMETERS (angstrom)
+   2.600000000   0.000000000   0.000000000
+  -1.300000000   2.251666049   0.000000000
+   0.000000000   0.000000000  20.000000000

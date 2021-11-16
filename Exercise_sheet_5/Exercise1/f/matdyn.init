@@ -1,0 +1,6 @@
+&input
+    amass(1)=28.086,
+    asr='crystal',
+    flfrc='Si.FC',
+    flfrq='frequency'
+/

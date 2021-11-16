@@ -1,0 +1,10 @@
+&inputpp
+  prefix='Mn2C'
+  outdir='TMP_DIR'
+  plot_num=6
+/
+&plot
+  iflag=3
+  output_format=5
+  fileout='Mn2C_AFM2_density.xsf'
+/

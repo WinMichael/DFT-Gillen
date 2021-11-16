@@ -1,0 +1,36 @@
+&control
+    calculation = 'vc-relax'
+    restart_mode='from_scratch',
+    prefix='Al',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0004
+ /
+ &system
+    ibrav=0, celldm(1)=1.889725989, nat= 1, ntyp= 1,
+    ecutwfc =65.0, ecutrho=520.0, input_dft = 'pbesol',
+    occupations='smearing', smearing='gaussian', degauss=0.02
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.01, !!! Toleranz fuer Verspannung
+ cell_factor = 1.1
+ /
+ATOMIC_SPECIES
+ Al  26.0  Al.gbrv.UPF
+ATOMIC_POSITIONS (crystal)
+ Al   0.0000000000000000   0.0000000000000000   0.0000000000000000
+K_POINTS {automatic}
+18 18 18 0 0 0
+CELL_PARAMETERS (alat=  1.88972599)
+       0.000000000000000       2.024750000000000       2.024750000000000
+       2.024750000000000      -0.000000000000001       2.024750000000001
+       2.024750000000000       2.024749999999999       0.000000000000000

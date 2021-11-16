@@ -1,0 +1,10 @@
+&inputpp
+  prefix='SiO2'
+  outdir='TMP_DIR'
+  plot_num=6
+/
+&plot
+  iflag=3
+  output_format=5
+  fileout='SiO2Al_density.xsf'
+/

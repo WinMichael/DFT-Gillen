@@ -1,0 +1,9 @@
+&input
+flfrc='Si_ifc.FC',
+q_in_cryst_coord = .true.,
+asr='crystal'
+flvec = 'Si.modes'
+flfrq = 'Si.freq'
+/
+1
+0.000  0.000  0.000  1

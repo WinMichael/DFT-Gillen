@@ -1,0 +1,117 @@
+--
+&inputepw
+  prefix      = 'MgB2',
+  amass(1)    = 24.305,
+  amass(2)    = 10.811
+  outdir      = '../bands/TMP_DIR/'
+
+
+  !!!!!! Wannier part !!!!!!!!!
+  wannierize  = .true.              !use Wannier90 to wannierize the electronic bands and write the necessary files
+  nbndsub     =  5                  !take 5 bands for the wannierization (this also produces 5 Wannier orbitals)
+  nbndskip    =  0                  !skip zero bands before taking the nbndsub (i.e. the bands [1,nbndsub] are used)
+  num_iter    = 500                 !Do 500 iterations for obtaining maximally-localized Wannier orbitals
+  dis_froz_max= 8.8                 !all bands up to 8.8 eV are "frozen" (i.e. the Wannier orbitals reproduce them as exactly as possible)
+  proj(1)     = 'random'
+  !proj(2)     = 'B:pz'   !initial projections
+  wdata(1) = 'bands_plot = .true.'
+  wdata(2) = 'begin kpoint_path'
+  wdata(3) = 'G 0.00 0.00 0.00  M 0.50 0.00 0.00'
+  wdata(4) = 'M 0.50 0.00 0.00  K 0.3333333 0.3333333 0.0'
+  wdata(5) = 'K 0.3333333 0.3333333 0.0  G 0.00 0.00 0.00'
+  wdata(6) = 'end kpoint_path'
+  wdata(7) = 'bands_plot_format = gnuplot'
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+  !!!!!! electron-phonon coupling and eliashberg function calculation !!!!
+  ep_coupling = .true.              !run electron-phonon coupling calculation
+  elph        = .true.              !calculate electron-phonon coupling coefficients
+  kmaps       = .false.             !do not read precalculated rec. grid maps from files
+  epbwrite    = .true.              !write electron-phonon matrix on coarse grid in Bloch basis to hard disk
+  epbread     = .false.             !do not read electron-phonon matrix on coarse grid in Bloch basis from hard disk (for restart purposes)
+
+  epwwrite = .true.                 !write electron-phonon matrix on coarse grid in Wannier basis to hard disk  
+  epwread  = .false.                !do not read electron-phonon matrix on coarse grid in Wannier basis from hard disk (for restart purposes)
+
+  iverbosity  = 2                   !verbose output
+
+
+  eps_acustic = 2.0                 !Lowest frequency boundary for the inclusion of acoustic modes
+  ephwrite    = .true.              !Writes .ephmat files used when eliasberg = .true. 
+
+  fsthick     = 0.4  ! eV           !include states in a 0.4 eV windows around the Fermi energy for the Eliashberg calcs
+  eptemp      = 300  ! K            !Temperature(s) for Fermi occupation
+  degaussw    = 0.10 ! eV           !smearing of the energy-conserving delta functions
+  delta_smear = 0.04 ! eV
+
+  degaussq     = 0.5 ! meV          !smearing for sum over q in the electron-phonon coupling
+
+  eliashberg  = .true.              !Calculate the eliashberg function and related quantities and solve the Eliashberg gap equations
+
+  !laniso = .true.
+  liso = .true.                     !calculate and use the isotropic Eliashberg function instead of the anisotropic, band-resolved, Eliashberg function
+  limag = .true.                    !use the imaginary axis version of the Eliashberg gap equations
+  lpade = .true.                    !use Pade-type approximants for analytic continuation of the solutions along the imagrinary frequency axis onto the real frequency axis
+
+  conv_thr_iaxis = 1.0d-4           !convergence threshold
+
+  wscut = 1.0   ! eV                !Upper limit over frequency integration/summation in the Eliashberg eq
+
+  nstemp   = 6                      !number of temperatures within the temperature range defined below
+  tempsmin =  5.00                  !lower end of the temperature range to be considered
+  tempsmax = 30.00                  !upper end of the temeprature range to be considered. This should not be much higher than Tc.
+
+  nsiter   = 500                    !max number of iterations for the self-consistent solution of the Eliashberg equations
+
+  muc     = 0.16                    !value of the "Coulomb pseudopotential", a measure for the repulsive Coulomb interaction between electrons on the Fermi surface
+
+  dvscf_dir   = '../phonons/save'   !path where EPW can find the save folder with the phonon data
+  
+  nk1         = 6                   !coarse k-point grid used for the calculation of the electronic structure
+  nk2         = 6           
+  nk3         = 6
+
+  nq1         = 6                   !coarse q-point grid used for the calculation of the phonon spectrum
+  nq2         = 6                   !the coordinates q-points of the symmetry reduced grid are defined below. these points have to be exactly the same as those from MgB2.dyn0 
+  nq3         = 6
+
+  mp_mesh_k = .true.                !the fine grids that the EPC matrix is interpolated to are defined as Monkhorst-Pack grids
+  nkf1 = 12                         !dimensions of the fine k-point grid
+  nkf2 = 12
+  nkf3 = 12
+
+  nqf1 = 12                         !dimensions of the fine q-point grid
+  nqf2 = 12
+  nqf3 = 12
+ /
+  28 cartesian
+  0.000000000   0.000000000   0.000000000  0.004629630
+  0.000000000   0.000000000   0.145933920  0.009259259
+  0.000000000   0.000000000   0.291867841  0.009259259
+  0.000000000   0.000000000  -0.437801761  0.004629630
+  0.000000000   0.192450090   0.000000000  0.027777778
+  0.000000000   0.192450090   0.145933920  0.055555556
+  0.000000000   0.192450090   0.291867841  0.055555556
+  0.000000000   0.192450090  -0.437801761  0.027777778
+  0.000000000   0.384900179   0.000000000  0.027777778
+  0.000000000   0.384900179   0.145933920  0.055555556
+  0.000000000   0.384900179   0.291867841  0.055555556
+  0.000000000   0.384900179  -0.437801761  0.027777778
+  0.000000000  -0.577350269   0.000000000  0.013888889
+  0.000000000  -0.577350269   0.145933920  0.027777778
+  0.000000000  -0.577350269   0.291867841  0.027777778
+  0.000000000  -0.577350269  -0.437801761  0.013888889
+  0.166666667   0.288675135   0.000000000  0.027777778
+  0.166666667   0.288675135   0.145933920  0.055555556
+  0.166666667   0.288675135   0.291867841  0.055555556
+  0.166666667   0.288675135  -0.437801761  0.027777778
+  0.166666667   0.481125224   0.000000000  0.055555556
+  0.166666667   0.481125224   0.145933920  0.111111111
+  0.166666667   0.481125224   0.291867841  0.111111111
+  0.166666667   0.481125224  -0.437801761  0.055555556
+  0.333333333   0.577350269   0.000000000  0.009259259
+  0.333333333   0.577350269   0.145933920  0.018518519
+  0.333333333   0.577350269   0.291867841  0.018518519
+  0.333333333   0.577350269  -0.437801761  0.009259259
