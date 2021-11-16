@@ -1,0 +1,25 @@
+#                                                           
+#  ____  ____     _       ____    ____  ______      ___     
+# |_  _||_  _|   / \     |_   \  /   _||_   _ \   ."   `.   
+#   \ \  / /    / _ \      |   \/   |    | |_) | /  .-.  \  
+#    \ \/ /    / ___ \     | |\  /| |    |  __". | |   | |  
+#    _|  |_  _/ /   \ \_  _| |_\/_| |_  _| |__) |\  `-"  /  
+#   |______||____| |____||_____||_____||_______/  `.___."   
+#                                                           
+#                                                           
+#                                                           
+# GPL Version 4.4.0 Revision 148. (Based on r.16920 h.961a8d
+#                   MPI+SLK+OpenMP Build                    
+#                http://www.yambo-code.org                  
+#
+kpts_map                       # [R] BZ map fine grid to coarse
+BZ_DbGd_Nk=0                   # BZ Number of points in the double grid
+SkipCheck                     # Skip internal consistency check on k-point grids
+#noBZExpand                    # Keep the Double Grid k-points in the IBZ without using the symmetries
+#NoWeights                     #  Do not print points weight
+%DbGd_DB1_paths                # Paths to the SAVE folders with the Double Grid DB1
+"../TMP_DIR/C.save" |
+%
+ | %DbGd_DB1_paths                # Paths to the SAVE folders with the Double Grid DB1
+ | "../TMP_DIR/C.save" |
+ | %

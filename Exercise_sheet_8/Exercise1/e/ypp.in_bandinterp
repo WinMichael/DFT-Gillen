@@ -1,0 +1,39 @@
+#                                                           
+# :::   :::   :::     ::::    ::::  :::::::::   ::::::::    
+# :+:   :+: :+: :+:   +:+:+: :+:+:+ :+:    :+: :+:    :+:   
+#  +:+ +:+ +:+   +:+  +:+ +:+:+ +:+ +:+    +:+ +:+    +:+   
+#   +#++: +#++:++#++: +#+  +:+  +#+ +#++:++#+  +#+    +:+   
+#    +#+  +#+     +#+ +#+       +#+ +#+    +#+ +#+    +#+   
+#    #+#  #+#     #+# #+#       #+# #+#    #+# #+#    #+#   
+#    ###  ###     ### ###       ### #########   ########    
+#                                                           
+#                                                           
+# GPL Version 4.4.0 Revision 148. (Based on r.16920 h.961a8d
+#                        MPI Build                          
+#                http://www.yambo-code.org                  
+#
+electrons                      # [R] Electrons (and holes)
+bnds                           # [R] Bands
+INTERP_mode= "NN"              # Interpolation mode (NN=nearest point, BOLTZ=boltztrap aproach)
+cooIn= "rlu"                   # Points coordinates (in) cc/rlu/iku/alat
+cooOut= "rlu"                  # Points coordinates (out) cc/rlu/iku/alat
+% BANDS_bands
+    1 |  8 |                 # Number of bands
+%
+% INTERP_Grid
+-1 |-1 |-1 |                             # Interpolation BZ Grid
+%
+INTERP_Shell_Fac= 20.00000     # The bigger it is a higher number of shells is used
+CIRCUIT_E_DB_path= "none"      # SAVE obtained from the QE `bands` run (alternative to %BANDS_kpts)
+BANDS_path= "G X G L"                 # BANDS path points labels (G,M,K,L...)
+BANDS_steps= 100                # Number of divisions
+#BANDS_built_in                # Print the bands of the generating points of the circuit using the nearest internal point
+GfnQPdb= "E < ./SAVE/ndb.QP"                # [EXTQP G] Database
+%BANDS_kpts                    # K points of the bands circuit
+  1.0 | 1.0 | 1.0 |
+  1.0 | 0.5 | 0.5 |
+  0.0 | 0.0 | 0.0 |
+  0.5 | 0.5 | 0.5 |
+%
+ | %BANDS_kpts                    # K points of the bands circuit
+ | %

@@ -1,0 +1,34 @@
+&control
+    calculation = 'nscf'
+    prefix='C',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0004
+ /
+ &system
+    ibrav=0, nat= 2, ntyp= 1,
+    ecutwfc =80.0, input_dft = 'lda'
+    nbnd=20, force_symmorphic=.true.
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0
+ /
+ATOMIC_SPECIES
+  C  12.0   C.nc.UPF
+ATOMIC_POSITIONS (crystal)
+  C   0.0000000000000000   0.0000000000000000   0.500000000000000
+  C   0.3333333333333333   0.3333333333333333   0.500000000000000
+K_POINTS {automatic}
+24 24 1 0 0 0
+CELL_PARAMETERS (angstrom)
+   2.460177105  -0.000000000  -0.000000000
+   1.230088552   2.130575870   0.000000000
+   0.000000000  -0.000000000  15.000000000

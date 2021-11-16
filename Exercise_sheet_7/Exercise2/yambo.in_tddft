@@ -1,0 +1,50 @@
+#                                                           
+#  /$$     /$$ /$$$$$$  /$$      /$$ /$$$$$$$   /$$$$$$     
+# |  $$   /$$//$$__  $$| $$$    /$$$| $$__  $$ /$$__  $$    
+#  \  $$ /$$/| $$  \ $$| $$$$  /$$$$| $$  \ $$| $$  \ $$    
+#   \  $$$$/ | $$$$$$$$| $$ $$/$$ $$| $$$$$$$ | $$  | $$    
+#    \  $$/  | $$__  $$| $$  $$$| $$| $$__  $$| $$  | $$    
+#     | $$   | $$  | $$| $$\  $ | $$| $$  \ $$| $$  | $$    
+#     | $$   | $$  | $$| $$ \/  | $$| $$$$$$$/|  $$$$$$/    
+#     |__/   |__/  |__/|__/     |__/|_______/  \______/     
+#                                                           
+# GPL Version 4.4.0 Revision 148. (Based on r.16920 h.961a8d
+#                  MPI+SLK+OpenMP Build                     
+#               http://www.yambo-code.org                   
+#
+optics                         # [R OPT] Optics
+rim_cut                        # [R RIM CUT] Coulomb potential
+chi                            # [R CHI] Dyson equation for Chi.
+tddft                          # [R   K] Use TDDFT kernel
+FFTGvecs=  6489        RL      # [FFT] Plane-waves
+X_q_0_CPU= "4 1 5 1"           # [PARALLEL] CPUs for each role
+X_q_0_ROLEs= "g k c v"         # [PARALLEL] CPUs roles (g,k,c,v)
+X_finite_q_CPU= "5 2 1 4 1"    # [PARALLEL] CPUs for each role
+X_finite_q_ROLEs= "q g k c v"  # [PARALLEL] CPUs roles (q,g,k,c,v)
+X_Threads=0                    # [OPENMP/X] Number of threads for response functions
+DIP_Threads=0                  # [OPENMP/X] Number of threads for dipoles
+RandQpts=2500000               # [RIM] Number of random q-points in the BZ
+RandGvec= 50            eV     # [RIM] Coulomb interaction RS components
+CUTGeo= "box xy"               # [CUT] Coulomb Cutoff geometry: box/cylinder/sphere/ws X/Y/Z/XY..
+% CUTBox
+ 0.00     | 0.00     | 28.00     |        # [CUT] [au] Box sides
+%
+Chimod= "ALDA"                 # [X] IP/Hartree/ALDA/LRC/PF/BSfxc
+FxcGRLc= 50            eV     # [TDDFT] XC-kernel RL size
+NGsBlkXd= 50           eV     # [Xd] Response block size
+% QpntsRXd
+  1 |  4 |                     # [Xd] Transferred momenta
+%
+% BndsRnXd
+  1 | 20 |                     # [Xd] Polarization function bands
+%
+% EnRngeXd
+  0.00000 | 30.00000 | eV      # [Xd] Energy range
+%
+% DmRngeXd
+  0.10000 |  0.10000 | eV      # [Xd] Damping range
+%
+ETStpsXd=  3000                 # [Xd] Total Energy steps
+% LongDrXd
+ 1.000000 | 0.000000 | 0.000000 |        # [Xd] [cc] Electric Field
+%

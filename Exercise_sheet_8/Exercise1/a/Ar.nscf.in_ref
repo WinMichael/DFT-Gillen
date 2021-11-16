@@ -1,0 +1,35 @@
+&control
+    calculation = 'nscf'
+    prefix='Ar',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0004
+    wf_collect=.true.,
+    verbosity='high'
+ /
+ &system
+    ibrav=0, nat= 1, ntyp= 1,
+    ecutwfc =90.0, input_dft = 'lda', nbnd=505
+ /
+ &electrons
+    diagonalization='cg'
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0
+ /
+ATOMIC_SPECIES
+  Ar  39.9   Ar.upf
+ATOMIC_POSITIONS (crystal)
+  Ar   0.0000000000000000   0.0000000000000000   0.000000000000000
+K_POINTS {automatic}
+12 12 12 0 0 0
+CELL_PARAMETERS (angstrom)
+   2.465384480   2.465384480   0.000000000
+   2.465384480   0.000000000   2.465384480
+   0.000000000   2.465384480   2.465384480

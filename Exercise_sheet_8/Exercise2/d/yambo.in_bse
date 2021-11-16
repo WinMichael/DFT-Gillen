@@ -1,0 +1,70 @@
+#                                                           
+#  ____  ____     _       ____    ____  ______      ___     
+# |_  _||_  _|   / \     |_   \  /   _||_   _ \   ."   `.   
+#   \ \  / /    / _ \      |   \/   |    | |_) | /  .-.  \  
+#    \ \/ /    / ___ \     | |\  /| |    |  __". | |   | |  
+#    _|  |_  _/ /   \ \_  _| |_\/_| |_  _| |__) |\  `-"  /  
+#   |______||____| |____||_____||_____||_______/  `.___."   
+#                                                           
+#                                                           
+#                                                           
+# GPL Version 4.4.0 Revision 148. (Based on r.16920 h.961a8d
+#                        MPI Build                          
+#                http://www.yambo-code.org                  
+#
+rim_cut                        # [R RIM CUT] Coulomb potential
+em1s                           # [R Xs] Static Inverse Dielectric Matrix
+optics                         # [R OPT] Optics
+bss                            # [R BSS] Bethe Salpeter Equation solver
+bse                            # [R BSE] Bethe Salpeter Equation.
+bsk                            # [R BSK] Bethe Salpeter Equation kernel
+NLogCPUs=0                     # [PARALLEL] Live-timing CPU`s (0 for all)
+PAR_def_mode= "balanced"       # [PARALLEL] Default distribution mode ("balanced"/"memory"/"workload")
+X_all_q_CPU= "4 1 1 5 1"       # [PARALLEL] CPUs for each role
+X_all_q_ROLEs= "q g k c v"     # [PARALLEL] CPUs roles (q,g,k,c,v)
+X_all_q_nCPU_LinAlg_INV= 1     # [PARALLEL] CPUs for Linear Algebra
+BS_CPU= "4 1 5"                # [PARALLEL] CPUs for each role
+BS_ROLEs= "k eh t"             # [PARALLEL] CPUs roles (k,eh,t)
+BS_nCPU_LinAlg_INV= 1          # [PARALLEL] CPUs for Linear Algebra
+BS_nCPU_LinAlg_DIAGO= 1        # [PARALLEL] CPUs for Linear Algebra
+RandQpts=2500000               # [RIM] Number of random q-points in the BZ
+RandGvec= 50           eV      # [RIM] Coulomb interaction RS components
+% Em1Anys
+ 0.00     | 0.00     | 0.00     |        # [RIM] X Y Z Static Inverse dielectric matrix
+%
+CUTGeo= "box z"                # [CUT] Coulomb Cutoff geometry: box/cylinder/sphere/ws X/Y/Z/XY..
+% CUTBox
+  0.00000 |  0.00000 | 37.75000 |        # [CUT] [au] Box sides
+%
+BSEmod= "retarded"             # [BSE] resonant/retarded/coupling
+BSKmod= "SEX"                  # [BSE] IP/Hartree/HF/ALDA/SEX
+BSSmod= "d"                    # [BSS] (h)aydock/(d)iagonalization/(i)nversion/(t)ddft`
+DbGdQsize= 1.000000            # [X,DbGd][o/o] Percentual of the total DbGd transitions to be used
+BSENGexx=  600         eV      # [BSK] Exchange components
+BSENGBlk= 200          eV      # [BSK] Screened interaction block size
+KfnQPdb= "none"                # [EXTQP BSK BSS] Database
+KfnQP_N= 1                     # [EXTQP BSK BSS] Interpolation neighbours
+% KfnQP_E
+ 2.750000 | 1.000000 | 1.000000 |        # [EXTQP BSK BSS] E parameters  (c/v) eV|adim|adim
+%
+% BEnRange
+  0.00000 | 10.00000 | eV      # [BSS] Energy range
+%
+% BDmRange
+  0.10000 |  0.10000 | eV      # [BSS] Damping range
+%
+BEnSteps= 1000                 # [BSS] Energy steps
+% BLongDir
+ 1.000000 | 0.000000 | 0.000000 |        # [BSS] [cc] Electric Field
+%
+% BSEBands
+  1 |  8 |                     # [BSK] Bands range
+%
+WRbsWF                        # [BSS] Write to disk excitonic the WFs
+% QpntsRXs
+  1 | 61 |                     # [Xs] Transferred momenta
+%
+% BndsRnXs
+   1 | 250 |                   # [Xs] Polarization function bands
+%
+NGsBlkXs= 200          eV      # [Xs] Response block size

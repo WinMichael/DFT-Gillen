@@ -1,0 +1,23 @@
+#                                                           
+#  __  __   ________   ___ __ __    _______   ______        
+# /_/\/_/\ /_______/\ /__//_//_/\ /_______/\ /_____/\       
+# \ \ \ \ \\::: _  \ \\::\| \| \ \\::: _  \ \\:::_ \ \      
+#  \:\_\ \ \\::(_)  \ \\:.      \ \\::(_)  \/_\:\ \ \ \     
+#   \::::_\/ \:: __  \ \\:.\-/\  \ \\::  _  \ \\:\ \ \ \    
+#     \::\ \  \:.\ \  \ \\. \  \  \ \\::(_)  \ \\:\_\ \ \   
+#      \__\/   \__\/\__\/ \__\/ \__\/ \_______\/ \_____\/   
+#                                                           
+#                                                           
+# GPL Version 4.4.0 Revision 148. (Based on r.16920 h.961a8d
+#                        MPI Build                          
+#                http://www.yambo-code.org                  
+#
+% Elec
+-1000.    |-1000.    |-1000.    |        # [cc] Electron position in unit cell
+%
+fixsyms                        # [R] Reduce Symmetries
+% Efield1
+ 0.00     | 0.00     | 0.00     |        # First external Electric Field
+%
+#RmAllSymm                     # Remove all symmetries
+RmTimeRev                     # Remove Time Reversal
