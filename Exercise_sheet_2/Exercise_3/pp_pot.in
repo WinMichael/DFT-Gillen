@@ -1,0 +1,13 @@
+&inputpp
+  prefix='C'
+  outdir='TMP_DIR'
+  plot_num=1  !total Kohn-Sham potential
+/
+&plot
+  iflag=1                            ! 1D plot along a line in real space
+  e1(1)=0.0, e1(2)=28.0, e1(3)=0.0   ! line along which we plot the potential. In units of alat
+  x0(1)=0.65, x0(2)=0.0, x0(3)=0.0  ! coordinates of the starting point of the plotting line. In units of alat.
+  nx = 200                           ! how many points do we want in the plot?
+  output_format=0                    ! we want to write the data to a file that can be plotted with gnuplot
+  fileout='C_totpot.dat'
+/

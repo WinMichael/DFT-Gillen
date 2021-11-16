@@ -1,0 +1,10 @@
+&inputpp
+  prefix='C'
+  outdir='TMP_DIR'
+  plot_num=0
+/
+&plot
+  iflag=3
+  output_format=5
+  fileout='C_density.xsf'
+/

@@ -1,0 +1,25 @@
+&control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='C',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/',
+    wf_collect=.true.
+ /
+ &system
+    ibrav=0, nat= 2, ntyp= 1,
+    ecutwfc =90.0, input_dft = 'pbesol'
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+ATOMIC_SPECIES
+ C  12.0  C.nc.UPF
+ATOMIC_POSITIONS (crystal)
+C       0.00 0.00 0.00
+C       0.25 0.25 0.25
+K_POINTS {automatic}
+6 6 6 1 1 1
+CELL_PARAMETERS (angstrom)
+XXX

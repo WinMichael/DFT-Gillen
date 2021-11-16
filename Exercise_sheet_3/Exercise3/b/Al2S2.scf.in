@@ -1,0 +1,32 @@
+ &control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='Al2S2',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/'
+ /
+ &system
+    ibrav=0, nat=  4, ntyp= 2,
+    ecutwfc =80.0, input_dft = 'pbe'
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.01
+ /
+ATOMIC_SPECIES
+ Al   27.0  Al.nc.UPF
+  S   32.0   S.nc.UPF
+ATOMIC_POSITIONS (crystal)
+XXX
+K_POINTS {automatic}
+12 12 1 0 0 0
+CELL_PARAMETERS {angstrom} hexagonal
+XXX

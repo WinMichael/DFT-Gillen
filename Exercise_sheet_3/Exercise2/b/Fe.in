@@ -1,0 +1,36 @@
+&control
+    calculation = 'vc-relax'
+    prefix='Fe',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/'
+    forc_conv_thr = 0.0004
+ /
+ &system
+    ibrav=0, nat= 1, ntyp= 1,
+    ecutwfc =90.0, input_dft = 'pbesol',
+    occupations='smearing', smearing='cold', degauss=0.01,
+    nspin=2, starting_magnetization(1)=1.0
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.1,
+ cell_factor = 1.1
+/
+ATOMIC_SPECIES
+ Fe  55.845  Fe.nc.UPF
+ATOMIC_POSITIONS (crystal)
+  Fe   0.0000000000000000   0.0000000000000000   0.0000000000000000
+K_POINTS {automatic}
+14 14 14 1 1 1
+CELL_PARAMETERS (angstrom)
+       1.435000000000000       1.435000000000000       1.435000000000000
+       1.435000000000000      -1.435000000000000       1.435000000000000
+       1.435000000000000       1.435000000000000      -1.435000000000000

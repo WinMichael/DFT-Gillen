@@ -1,0 +1,41 @@
+&control
+    calculation = 'vc-relax'
+    prefix='MgO',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0004
+ /
+ &system
+    ibrav=0, nat= 8, ntyp= 2,
+    ecutwfc =75.0, input_dft = 'lda'
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.05
+/
+ATOMIC_SPECIES
+ Mg  24.3  Mg.nc.UPF
+ O   16.0   O.nc.UPF
+ATOMIC_POSITIONS (crystal)
+Mg   0.0  0.0  0.0
+Mg   0.5  0.5  0.0
+Mg   0.5  0.0  0.5
+Mg   0.0  0.5  0.5
+O    0.5  0.0  0.0
+O    0.0  0.5  0.0
+O    0.0  0.0  0.5
+O    0.5  0.5  0.5
+K_POINTS {automatic}
+4 4 4 0 0 0
+CELL_PARAMETERS (angstrom)
+   4.210000000   0.000000000   0.000000000
+   0.000000000   4.210000000   0.000000000
+   0.000000000   0.000000000   4.210000000

@@ -1,0 +1,44 @@
+&control
+    calculation = 'vc-relax'
+    restart_mode='from_scratch',
+    prefix='C',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0004
+ /
+ &system
+    ibrav=0, celldm(1)=1.889725989, nat= 8, ntyp= 2,
+    ecutwfc =100.0, input_dft = 'pbesol',
+    occupations='smearing', smearing='cold', degauss=0.01
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.01,
+ cell_dofree='x'
+/
+ATOMIC_SPECIES
+ C  12.0  C.nc.UPF
+ H   1.0  H.nc.UPF
+ATOMIC_POSITIONS (crystal)
+H        0.764353920   0.602091597   0.000000000
+H        0.264693739   0.348211759  -0.000000000
+C        0.764656072   0.462764983   0.000000000
+C        0.764680519   0.562944772   0.000000000
+C        0.264708173   0.539016979   0.000000000
+C        0.264494259   0.487486088  -0.000000000
+C        0.764806201   0.411260310  -0.000000000
+C        0.264862764   0.387332611  -0.000000000
+K_POINTS {automatic}
+9 1 1 0 0 0
+CELL_PARAMETERS (alat=  1.88972599)
+       2.500000000000000       0.000000000000000       0.000000000000000
+       0.000000000000000      28.000000000000000       0.000000000000001
+       0.000000000000000       0.000000000000000      15.000000000000000

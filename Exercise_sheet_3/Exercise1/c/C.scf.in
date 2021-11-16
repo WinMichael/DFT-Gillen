@@ -1,0 +1,27 @@
+&control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='C',
+    tprnfor = .true.
+    pseudo_dir = '.../',
+    outdir='TMP_DIR/',
+    wf_collect=.true.
+ /
+ &system
+    ibrav=0, nat= 2, ntyp= 1,
+    ecutwfc =90.0, input_dft = 'hse', nbnd=12
+ /
+ &electrons
+    conv_thr =  1.0d-9
+ /
+ATOMIC_SPECIES
+ C  12.0  C.nc.UPF
+ATOMIC_POSITIONS (crystal)
+C       0.00 0.00 0.00
+C       0.25 0.25 0.25
+K_POINTS {automatic}
+5 5 5 0 0 0
+CELL_PARAMETERS (angstrom)
+   0.000000000   1.786507378   1.786507378
+   1.786507378   1.786507378   0.000000000
+   1.786507378   0.000000000   1.786507378

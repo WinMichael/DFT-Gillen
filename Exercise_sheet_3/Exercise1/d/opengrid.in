@@ -1,0 +1,4 @@
+&inputpp
+  prefix='C',
+  outdir='../c/TMP_DIR'
+/

@@ -1,0 +1,4 @@
+&fermi
+  outdir='../d/TMP_DIR'    !or plot it from c
+  prefix='Fe'
+/

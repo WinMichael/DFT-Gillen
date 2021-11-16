@@ -1,0 +1,8 @@
+&inputpp
+  outdir='../c/TMP_DIR'
+  prefix = 'C_open'
+  seedname = 'C'
+  write_mmn = .true.
+  write_amn = .true.
+  write_unk = .false. 
+/

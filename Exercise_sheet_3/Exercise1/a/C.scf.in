@@ -1,0 +1,38 @@
+&control
+    calculation = 'vc-relax'
+    restart_mode='from_scratch',
+    prefix='C',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    outdir='TMP_DIR/',
+    forc_conv_thr = 0.0002,  !!! Toleranz fuer interatomare Kräfte
+    wf_collect=.true.
+    max_seconds=34000
+ /
+ &system
+    ibrav=0, nat= 2, ntyp= 1,
+    ecutwfc =90.0, input_dft = 'pbe'
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.01, !!! Toleranz fuer Verspannung
+ cell_factor = 1.1
+ /
+ATOMIC_SPECIES
+ C  12.0  C.nc.UPF
+ATOMIC_POSITIONS (crystal)
+C       0.00 0.00 0.00
+C       0.25 0.25 0.25
+K_POINTS {automatic}
+6 6 6 1 1 1
+CELL_PARAMETERS (angstrom)
+   0.000000000   1.785000000   1.785000000
+   1.785000000   1.785000000   0.000000000
+   1.785000000   0.000000000   1.785000000

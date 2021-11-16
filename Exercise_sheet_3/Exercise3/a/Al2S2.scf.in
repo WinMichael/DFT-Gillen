@@ -1,0 +1,39 @@
+ &control
+    calculation = 'vc-relax'
+    restart_mode='from_scratch',
+    prefix='Al',
+    tprnfor = .true.
+    pseudo_dir = '../',
+    forc_conv_thr = 0.0002,
+    outdir='TMP_DIR/'
+ /
+ &system
+    ibrav=0, nat=  4, ntyp= 2,
+    ecutwfc =80.0, input_dft = 'pbesol'
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+&ions
+ ion_dynamics = 'bfgs'
+ /
+&cell
+ cell_dynamics = 'bfgs',
+ press = 0.0,
+ press_conv_thr = 0.01
+ cell_dofree='2Dxy'
+ /
+ATOMIC_SPECIES
+ Al   27.0  Al.nc.UPF
+  S   32.0   S.nc.UPF
+ATOMIC_POSITIONS (crystal)
+Al      -0.000000000  -0.000000000   0.565037494
+Al       0.000000000   0.000000000  -0.565037494
+S        0.333333333  -0.333333333   0.618316967
+S        0.333333333  -0.333333333  -0.618316967
+K_POINTS {automatic}
+12 12 1 0 0 0
+CELL_PARAMETERS {angstrom} hexagonal
+       3.1038350471  -1.7919999999   0.000000000
+       0.0000000000   3.5839999999   0.000000000
+       0.0000000000   0.0000000000  20.000000000

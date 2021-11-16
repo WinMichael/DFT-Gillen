@@ -1,0 +1,8 @@
+&dos
+  prefix='Fe'
+  outdir='TMP_DIR'
+  bz_sum='tetrahedra_opt'
+  Emin=-10     !lower end of energy range that is to be plotted
+  Emax=40      !upper end of energy range that is to be plotted
+  DeltaE=0.01  !energy step (in eV) for the DOs plot
+/

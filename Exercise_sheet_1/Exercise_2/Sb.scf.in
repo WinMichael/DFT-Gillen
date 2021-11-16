@@ -1,0 +1,26 @@
+ &control
+    calculation = 'scf'
+    restart_mode='from_scratch',
+    prefix='Sb',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/'
+ /
+ &system
+    ibrav=0, nat=  2, ntyp= 1,
+    ecutwfc =80.0, input_dft = 'pbe'
+ /
+ &electrons
+    conv_thr =  1.0d-10
+ /
+ATOMIC_SPECIES
+ Sb  121.76   Sb.nc.UPF
+ATOMIC_POSITIONS (angstrom)
+Sb       0.00000000000   0.000000000  -0.5459713
+Sb       2.02358152255   1.168315165   0.5459713
+K_POINTS {automatic}
+9 9 1 0 0 0
+CELL_PARAMETERS {angstrom} hexagonal
+   4.0471624510   0.0000000000   0.000000000
+  -2.0235812255   3.5049454958   0.000000000
+   0.0000000000   0.0000000000  20.000000000

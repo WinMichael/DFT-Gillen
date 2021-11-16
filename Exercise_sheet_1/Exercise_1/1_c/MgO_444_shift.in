@@ -1,0 +1,32 @@
+&control
+    calculation = 'scf'
+    prefix='MgO_444_shift',
+    tprnfor = .true.
+    pseudo_dir = './',
+    outdir='TMP_DIR/'
+ /
+ &system
+    ibrav=0, nat= 8, ntyp= 2,
+    ecutwfc =75.0, input_dft = 'pbe'
+ /
+ &electrons
+    conv_thr =  1.0d-8
+ /
+ATOMIC_SPECIES
+ Mg  24.305  Mg.nc.UPF
+ O   15.999   O.nc.UPF
+ATOMIC_POSITIONS (crystal)
+Mg   0.0  0.0  0.0
+Mg   0.5  0.5  0.0
+Mg   0.5  0.0  0.5
+Mg   0.0  0.5  0.5
+O    0.5  0.0  0.0
+O    0.0  0.5  0.0
+O    0.0  0.0  0.5
+O    0.5  0.5  0.5
+K_POINTS {automatic}
+4 4 4 1 1 1
+CELL_PARAMETERS (angstrom)
+ 4.21   0.00   0.00
+ 0.00   4.21   0.00
+ 0.00   0.00   4.21

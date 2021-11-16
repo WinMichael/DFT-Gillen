@@ -1,0 +1,6 @@
+&dos
+  prefix='Fe'
+  outdir='TMP_DIR'
+  bz_sum='smearing'
+  degauss=0.01
+/

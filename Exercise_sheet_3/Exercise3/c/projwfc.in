@@ -1,0 +1,5 @@
+&projwfc
+  outdir='TMP_DIR'
+  prefix='Al2S2'
+  degauss=0.01
+/
